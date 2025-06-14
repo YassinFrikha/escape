@@ -225,7 +225,7 @@
 
     <div class="store-container">
       <div class="product-grid">
-        <a href="buy-tent" class="product-link">
+        <a href="buy-tent.php" class="product-link">
           <div class="product-card">
             <img src="pics/tent (1).jpg" alt="Camping Tent" />
             <div class="product-info">
@@ -235,7 +235,7 @@
           </div>
         </a>
 
-        <a href="buy-back-pack" class="product-link">
+        <a href="buy-back-pack.php" class="product-link">
           <div class="product-card">
             <img src="pics/backpack.jpg" alt="Camping Backpack" />
             <div class="product-info">
@@ -245,7 +245,7 @@
           </div>
         </a>
 
-        <a href="buy-sleep-bag" class="product-link">
+        <a href="buy-sleep-bag.php" class="product-link">
           <div class="product-card">
             <img src="pics/sleepbag.jpg" alt="Sleeping Bag" />
             <div class="product-info">

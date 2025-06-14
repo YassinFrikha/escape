@@ -256,6 +256,6 @@
         <img src="pics/whatup.png" alt="WhatsApp" />
       </a>
     </div>
-    <footer>Made with 🌿 by ESCAPE</footer>
+    <iframe src="./components/footer.html" width="100%" height="413" style="border:0;" loading="lazy"></iframe>
   </body>
 </html>

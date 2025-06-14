@@ -1,10 +1,8 @@
-<?php include './logic/session.php'; ?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <?php include './components/website-icon.php'; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Escape | Premium Camping Experiences</title>
+    <title>Wilderness Escape | Premium Camping Experiences</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
@@ -831,22 +829,111 @@
   </head>
   <body>
     <!-- Navigation -->
-    <?php include './components/navbar.php'; ?>
+    <nav class="primary-bg text-white shadow-lg sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5 15l7-7 7 7M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"
+            ></path>
+          </svg>
+          <span class="font-bold text-xl">Wilderness Escape</span>
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+          <a href="#home" class="nav-link font-medium">Home</a>
+          <a href="#destinations" class="nav-link font-medium">Destinations</a>
+          <a href="#packages" class="nav-link font-medium">Packages</a>
+          <a href="#gear" class="nav-link font-medium">Gear</a>
+          <a href="#testimonials" class="nav-link font-medium">Testimonials</a>
+          <a href="#contact" class="nav-link font-medium">Contact</a>
+        </div>
+
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="focus:outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-white text-gray-800 pb-4 shadow-lg"
+      >
+        <div class="container mx-auto px-4 flex flex-col space-y-3 pt-3">
+          <a href="#home" class="block py-2 px-4 hover:bg-gray-100 rounded"
+            >Home</a
+          >
+          <a
+            href="#destinations"
+            class="block py-2 px-4 hover:bg-gray-100 rounded"
+            >Destinations</a
+          >
+          <a href="#packages" class="block py-2 px-4 hover:bg-gray-100 rounded"
+            >Packages</a
+          >
+          <a href="#gear" class="block py-2 px-4 hover:bg-gray-100 rounded"
+            >Gear</a
+          >
+          <a
+            href="#testimonials"
+            class="block py-2 px-4 hover:bg-gray-100 rounded"
+            >Testimonials</a
+          >
+          <a href="#contact" class="block py-2 px-4 hover:bg-gray-100 rounded"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section flex items-center justify-center h-[100vh]">
-        <div class="text-center text-white px-4">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Discover the Great Outdoors</h1>
-            <p class="text-xl md:text-2xl mb-8">Unforgettable camping experiences in nature's most beautiful locations</p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="trips.php" class="primary-bg text-white font-semibold py-3 px-8 rounded-lg hover:bg-opacity-90 transition duration-300 shadow-lg">
-                    Explore Destinations
-</a>
-                <a href="store.php" class="bg-white text-gray-800 font-semibold py-3 px-8 rounded-lg hover:bg-opacity-90 transition duration-300 shadow-lg">
-                    View Products
-</a>
-            </div>
+    <section id="home" class="hero-section flex items-center justify-center">
+      <div class="text-center text-white px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-4">
+          Discover the Great Outdoors
+        </h1>
+        <p class="text-xl md:text-2xl mb-8">
+          Unforgettable camping experiences in nature's most beautiful locations
+        </p>
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+          <button
+            class="primary-bg text-white font-semibold py-3 px-8 rounded-lg hover:bg-opacity-90 transition duration-300 shadow-lg"
+          >
+            Explore Destinations
+          </button>
+          <button
+            class="bg-white text-gray-800 font-semibold py-3 px-8 rounded-lg hover:bg-opacity-90 transition duration-300 shadow-lg"
+          >
+            View Packages
+          </button>
         </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
@@ -1211,7 +1298,7 @@
                   d="M5 15l7-7 7 7M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"
                 ></path>
               </svg>
-              <span class="font-bold text-xl">Escape</span>
+              <span class="font-bold text-xl">Wilderness Escape</span>
             </div>
             <p class="mb-4">
               Experience the beauty of nature with our premium camping
@@ -1335,12 +1422,32 @@
         </div>
 
         <div class="border-t border-green-700 mt-8 pt-8 text-center">
-          <p>© 2025 Escape. All rights reserved.</p>
+          <p>© 2023 Wilderness Escape. All rights reserved.</p>
         </div>
       </div>
     </footer>
 
-
+    <!-- Scroll to Top Button -->
+    <button
+      id="scroll-to-top"
+      class="scroll-to-top primary-bg text-white p-3 rounded-full shadow-lg opacity-0"
+      style="opacity: 1; display: block"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        ></path>
+      </svg>
+    </button>
 
     <script>
       // Mobile Menu Toggle
@@ -1442,5 +1549,16 @@
         }
       })();
     </script>
+    <iframe
+      height="1"
+      width="1"
+      style="
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        border: none;
+        visibility: hidden;
+      "
+    ></iframe>
   </body>
 </html>

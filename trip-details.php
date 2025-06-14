@@ -194,7 +194,8 @@
         <img src="<?php echo htmlspecialchars($trip['image_url']); ?>" alt="douz" />
         <div class="trip-header-info">
           <h2><?php echo htmlspecialchars($trip['label']); ?></h2>
-          <p class="price">Price: <?php echo htmlspecialchars($trip['price']); ?> TND</p>
+          <p class="price">💵 Price: <?php echo htmlspecialchars($trip['price']); ?> TND</p>
+          <p class="price">👥 Capacity: <?php echo htmlspecialchars($trip['quantity']); ?></p>
         </div>
       </div>
 

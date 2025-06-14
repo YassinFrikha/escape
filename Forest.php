@@ -17,6 +17,7 @@
         background: #f5f7f6;
         margin: 0;
         padding: 0;
+        width: 100%;
       }
 
       .nav-links a {
@@ -143,14 +144,7 @@
       .social-media img:hover {
         transform: scale(1.5);
       }
-      footer {
-        text-align: center;
-        padding: 30px 20px;
-        background-color: #c8e6c9;
-        margin-top: 60px;
-        font-size: 0.95em;
-        color: #2e3d2f;
-      }
+
       .dropdown {
         position: relative;
         display: inline-block;
@@ -236,6 +230,7 @@
       </a>
     </div>
 
+    </div>
     <iframe src="./components/footer.html" width="100%" height="413" style="border:0;" loading="lazy"></iframe>
   </body>
 </html>

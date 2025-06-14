@@ -74,6 +74,7 @@ if ($resetDatabase) {
     // Include the function to insert user
     require_once "./add_user.php";
     require_once "./add_trip.php";
+    require_once "./add_product.php";
 
     // Add sample user(s)
     addUser($conn, "John", "Doe", "john@example.com", "test123", "1234567890");
@@ -81,8 +82,8 @@ if ($resetDatabase) {
 
     
     require_once "../data/trips.php";
+    require_once "../data/products.php";
     // Add sample trips
-    
 
 }
 

@@ -1,4 +1,6 @@
-<?php include './logic/session.php'; ?><!DOCTYPE html>
+<?php include './logic/session.php'; ?>
+<?php include './logic/get_products.php'; ?>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" /><?php include './components/website-icon.php'; ?>
@@ -16,10 +18,6 @@
         color: white;
       }
 
-      
-
-      
-
       body {
         font-family: "Poppins", sans-serif;
         background: #f2f4f5;
@@ -27,13 +25,6 @@
         padding: 0;
       }
       
-
-
-
-
-
-    
-
       .nav-links a:hover {
         color: #c8e6c9;
       }
@@ -224,36 +215,38 @@
     </header>
 
     <div class="store-container">
+
+      <h2>Explore Our Products</h2>
+      <p>
+        Discover our range of high-quality camping gear and outdoor equipment.
+        Whether you're a seasoned adventurer or a weekend camper, we have
+        everything you need for your next trip.
+      </p>
+
       <div class="product-grid">
-        <a href="buy-tent.php" class="product-link">
+       <?php if ($error): ?>
+        <p style="color: red;"><?php echo htmlspecialchars($error); ?></p>
+    <?php else: ?>
+    <?php foreach ($products as $product): ?>
+      <a  href="product.php?id=<?php echo $product['id']; ?>" class="product-link">
           <div class="product-card">
-            <img src="pics/tent (1).jpg" alt="Camping Tent" />
+             <img
+            src="<?php echo htmlspecialchars($product['image_url']); ?>"
+            alt="<?php echo htmlspecialchars($product['name']); ?>"
+        />
             <div class="product-info">
-              <h3>Camping Tent</h3>
-              <div class="product-price">150 TND</div>
+              <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+              <div class="product-price"><?php echo htmlspecialchars($product['price']); ?> TND</div>
             </div>
           </div>
         </a>
 
-        <a href="buy-back-pack.php" class="product-link">
-          <div class="product-card">
-            <img src="pics/backpack.jpg" alt="Camping Backpack" />
-            <div class="product-info">
-              <h3>Camping Backpack</h3>
-              <div class="product-price">80 TND</div>
-            </div>
-          </div>
-        </a>
 
-        <a href="buy-sleep-bag.php" class="product-link">
-          <div class="product-card">
-            <img src="pics/sleepbag.jpg" alt="Sleeping Bag" />
-            <div class="product-info">
-              <h3>Sleeping Bag</h3>
-              <div class="product-price">50 TND</div>
-            </div>
-          </div>
-        </a>
+
+ 
+    <?php endforeach; ?>
+    <?php endif; ?>
+
       </div>
     </div>
 

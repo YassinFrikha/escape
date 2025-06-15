@@ -1,8 +1,8 @@
 <?php
 // Database credentials
-$servername = "localhost";
-$username = "root";
-$password = "";
+$servername = "sql203.infinityfree.com";
+$username = "if0_39238019";
+$password = "PxldNjU28c";
 $dbname = "escape";
 
 // Create connection

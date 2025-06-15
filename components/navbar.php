@@ -41,6 +41,15 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         justify-content: space-between;
         align-items: center;
         height: 60px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        position: fixed;
+        width: 100%;
+        top:0;
+        z-index: 9999999;
+    }
+
+    .nav-gap{
+        height: 60px; /* Same height as the nav */
     }
 
     .logo img {
@@ -107,6 +116,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     }
 </style>
 
+<div class="nav-gap"></div>
 <nav>
     <div class="logo">
         <img src="./pics/logo.png" alt="ESCAPE Logo" />

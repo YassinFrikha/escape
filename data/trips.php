@@ -279,7 +279,7 @@ addTrip($conn, "Bou Hedma – Forest & Wildlife Trek", 102, "Bou Hedma National 
 </ul>", "http://localhost/escape/pics/bou-hedma.jpg", "forest", 24);
 
 
-addTrip($conn, "Feija – Northern Wilderness Escape", 95, "Feija National Park offers untouched forests, rare plants, and peaceful trails. Ideal for hikers, birdwatchers, and eco-lovers seeking fresh mountain air.", "<h3>🏕️ Trip Details</h3>
+addTrip($conn, "Feija – Northern  Escape", 95, "Feija National Park offers untouched forests, rare plants, and peaceful trails. Ideal for hikers, birdwatchers, and eco-lovers seeking fresh mountain air.", "<h3>🏕️ Trip Details</h3>
 <ul>
   <li><strong>Minimum Age:</strong> 10+</li>
   <li><strong>Accommodation:</strong> Forest cabins</li>

@@ -833,39 +833,38 @@
     <!-- Navigation -->
     <?php include './components/navbar.php'; ?>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section flex items-center justify-center h-[100vh]">
-        <div class="text-center text-white px-4">
-            <h1 class="text-4xl md:text-6xl font-bold mb-4">Discover the Great Outdoors</h1>
-            <p class="text-xl md:text-2xl mb-8">Unforgettable camping experiences in nature's most beautiful locations</p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="trips.php" class="primary-bg text-white font-semibold py-3 px-8 rounded-lg hover:bg-opacity-90 transition duration-300 shadow-lg">
-                    Explore Destinations
-</a>
-                <a href="store.php" class="bg-white text-gray-800 font-semibold py-3 px-8 rounded-lg hover:bg-opacity-90 transition duration-300 shadow-lg">
-                    View Products
-</a>
-            </div>
+    <!-- Page Header -->
+    <div class="primary-bg text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl font-bold mb-4">Contact Us</h1>
+            <p class="text-xl max-w-3xl mx-auto">Have questions or ready to book your next adventure? Reach out to our
+          friendly team and we'll get back to you as soon as possible.</p>
         </div>
-    </section>
+    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="py-16 px-4 bg-white">
       <div class="container mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-4">Contact Us</h2>
-        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          Have questions or ready to book your next adventure? Reach out to our
-          friendly team and we'll get back to you as soon as possible.
-        </p>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <!-- Contact Form -->
           <div class="bg-white rounded-lg shadow-lg p-8">
-            <h3 class="text-2xl font-semibold mb-6 primary-text">
+            <h3 class="text-2xl font-semibold  primary-text mb-0">
               Send Us a Message
             </h3>
+             <p class="mb-6 mt-0" >
+            <?php
+            if (isset($_GET['success']) && $_GET['success'] === 'true') {
+              echo "<div class='text-green-600 font-medium mb-4'>" . htmlspecialchars($_GET['message']) . "</div>";
+              }
 
-            <form class="contact-form">
+              if (isset($_GET['error']) && $_GET['error'] === 'true') {
+                  echo "<div class='text-red-600 font-medium mb-4'>" . htmlspecialchars($_GET['message']) . "</div>";
+              }
+              ?>
+              </p>
+ 
+            <form class="contact-form" action="services/contact_service.php" method="POST"> 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label
@@ -876,6 +875,7 @@
                   <input
                     type="text"
                     id="first-name"
+                    name="firstName"
                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition duration-300"
                     placeholder="John"
                   />
@@ -891,6 +891,7 @@
                     id="last-name"
                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition duration-300"
                     placeholder="Doe"
+                    name="lastName"
                   />
                 </div>
               </div>
@@ -902,6 +903,7 @@
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition duration-300"
                   placeholder="john.doe@example.com"
                 />
@@ -914,6 +916,7 @@
                 <input
                   type="tel"
                   id="phone"
+                  name="phone"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition duration-300"
                   placeholder="(123) 456-7890"
                 />
@@ -927,6 +930,7 @@
                 >
                 <select
                   id="subject"
+                  name="subject"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition duration-300"
                 >
                   <option value="" disabled="" selected="">
@@ -949,6 +953,7 @@
                 <textarea
                   id="message"
                   rows="5"
+                  name="message"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none transition duration-300"
                   placeholder="How can we help you?"
                 ></textarea>

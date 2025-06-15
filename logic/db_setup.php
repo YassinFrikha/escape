@@ -71,6 +71,23 @@ if ($resetDatabase) {
         die("Error creating product table: " . $conn->error);
     }
 
+    // Create Contact US
+    $sql = "CREATE TABLE contact (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        firstName VARCHAR(100),
+        lastName VARCHAR(100),
+        email VARCHAR(100),
+        phone VARCHAR(100),
+        subject VARCHAR(100),
+        message TEXT
+    )";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Contact table created.<br>";
+    } else {
+        die("Error creating product table: " . $conn->error);
+    }
+
     // Include the function to insert user
     require_once "./add_user.php";
     require_once "./add_trip.php";

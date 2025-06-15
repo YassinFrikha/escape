@@ -3,6 +3,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 ?>
 <!-- Navigation -->
 <style>
+    *{
+        box-sizing: border-box;
+    }
     .nav-links a {
         color: white;
         text-decoration: none;
@@ -43,7 +46,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         height: 60px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         position: fixed;
-        width: 100%;
+        width: 100vw;
+        max-width: 100vw;
         top:0;
         z-index: 9999999;
     }

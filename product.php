@@ -1,271 +1,109 @@
-<?php include './logic/session.php'; ?>
-<?php include './logic/get_product_by_id.php'; ?>
+<?php 
+include './logic/session.php'; 
+include './logic/get_product_by_id.php';
+
+// Get error or message from URL parameters
+$error = $_GET['error'] ?? null;
+$message = $_GET['message'] ?? null;
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" /><?php include './components/website-icon.php'; ?>
+    <meta charset="UTF-8" />
+    <?php include './components/website-icon.php'; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleeping Bag - ESCAPE</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-
-      body {
-        font-family: "Poppins", sans-serif;
-        background: #f2f4f5;
-        margin: 0;
-        padding: 0;
-      }
-
-      header {
-        background-image: url("pics/camp.jpg");
-        background-size: cover;
-        background-position: center;
-        padding: 100px 20px;
-        text-align: center;
-        color: white;
-        position: relative;
-      }
-
-      header::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 0;
-      }
-
-      header h1 {
-        position: relative;
-        z-index: 1;
-        font-size: 3em;
-        text-shadow: 1px 1px 5px black;
-      }
-
-      .container {
-        max-width: 1000px;
-        margin: 40px auto;
-        padding: 20px;
-        background: white;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      .product-image {
-        width: 100%;
-        max-height: 500px;
-        object-fit: contain;
-        border-radius: 10px;
-        display: block;
-        margin: 0 auto;
-      }
-
-      .description {
-        margin: 20px 0;
-        font-size: 1.1em;
-        line-height: 1.6;
-      }
-
-      .form-group {
-        margin: 20px 0;
-      }
-
-      label {
-        font-weight: bold;
-        display: block;
-        margin-bottom: 8px;
-      }
-
-      input[type="number"] {
-        width: 60px;
-        padding: 5px;
-        font-size: 1em;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-      }
-
-      .total-price {
-        font-size: 1.2em;
-        margin-top: 10px;
-        font-weight: bold;
-      }
-
-      .buttons {
-        margin-top: 30px;
-        display: flex;
-        gap: 20px;
-      }
-
-      .buttons button {
-        padding: 12px 25px;
-        border: none;
-        font-size: 1em;
-        font-weight: bold;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-
-      .buy-btn {
-        background-color: #4caf50;
-        color: white;
-      }
-
-      .buy-btn:hover {
-        background-color: #388e3c;
-      }
-
-      .cancel-btn {
-        background-color: #e0e0e0;
-        color: #333;
-      }
-
-      .cancel-btn:hover {
-        background-color: #bdbdbd;
-      }
-
-      .rating {
-        margin-top: 20px;
-        font-size: 1.5em;
-        color: gold;
-      }
-
-      footer {
-        text-align: center;
-        padding: 30px 20px;
-        background-color: #c8e6c9;
-        margin-top: 60px;
-        font-size: 0.95em;
-        color: #2e3d2f;
-      }
-
-      @media (max-width: 768px) {
-        header h1 {
-          font-size: 2em;
-        }
-
-        .buttons {
-          flex-direction: column;
-        }
-
-        .buttons button {
-          width: 100%;
-        }
-      }
-      .dropdown {
-        position: relative;
-        display: inline-block;
-      }
-
-      .dropbtn {
-        color: white;
-        text-decoration: none;
-        font-weight: 500;
-        padding: 0 10px;
-      }
-
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #ffffff;
-        min-width: 180px;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        border-radius: 6px;
-      }
-
-      .dropdown-content a {
-        color: #2e5d34;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        font-weight: 500;
-        transition: background 0.3s;
-      }
-
-      .dropdown-content a:hover {
-        background-color: #f0f8f1;
-      }
-
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
-    </style>
+    <title>
+      <?php 
+        echo htmlspecialchars($product['name'] ?? 'Product'); 
+      ?> - ESCAPE
+    </title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/product.css" />
   </head>
   <body>
-    <!-- Navigation -->
     <?php include './components/navbar.php'; ?>
-    <!-- Header -->
-    <header>
-      <h1></h1>
-    </header>
+
+    <header><h1></h1></header>
 
     <?php if ($error): ?>
-        <p style="color: red;"><?php echo htmlspecialchars($error); ?></p>
-    <?php elseif ($product): ?>
-
-    <!-- Product Info -->
-    <div class="container">
-
-    <h1 style="text-align: center;" >
-        <?php echo htmlspecialchars($product['name']); ?>
-    </h1>
-
-      <img
-       src="<?php echo htmlspecialchars($product['image_url']); ?>"
-       alt="<?php echo htmlspecialchars($product['name']); ?>"
-        class="product-image"
-      />
-      <p class="description">
-       <?php echo htmlspecialchars($product['description']); ?>
+      <p style="color: red; font-weight: bold; text-align: center;">
+        <?php echo htmlspecialchars($error); ?>
       </p>
-
-      <div class="form-group">
-        <label for="quantity">Quantity: </label>
-        <input type="number" id="quantity" name="quantity" min="1" value="1" />
-        <div class="total-price">Total: <span id="price"><?php echo htmlspecialchars($product['price']); ?></span> TND</div>
-      </div>
-
-      <div class="rating">
-    <?php
-        $rating = round($product['rating'] * 2) / 2; // Round to nearest 0.5
-        $fullStars = floor($rating);
-        $halfStar = ($rating - $fullStars) == 0.5 ? 1 : 0;
-        $emptyStars = 5 - $fullStars - $halfStar;
-
-        for ($i = 0; $i < $fullStars; $i++) echo "★";
-        if ($halfStar) echo "☆"; // Optionally use "⯪" or CSS for a real half star
-        for ($i = 0; $i < $emptyStars; $i++) echo "☆";
-    ?>
-    </div>
-
-      <div class="buttons">
-        <button class="buy-btn">Buy Now</button>
-        <button class="cancel-btn" onclick="window.location.href='store.php'">
-          Cancel
-        </button>
-      </div>
-
-    </div>
     <?php endif; ?>
 
-    <!-- Footer -->
+    <?php if ($message): ?>
+      <p style="color: green; font-weight: bold; text-align: center;">
+        <?php echo htmlspecialchars($message); ?>
+      </p>
+    <?php endif; ?>
+
+    <?php if ($product): ?>
+      <div class="container">
+
+        <h1 style="text-align: center;">
+          <?php echo htmlspecialchars($product['name']); ?>
+        </h1>
+
+        <img
+          src="<?php echo htmlspecialchars($product['image_url']); ?>"
+          alt="<?php echo htmlspecialchars($product['name']); ?>"
+          class="product-image"
+        />
+
+        <p class="description">
+          <?php echo htmlspecialchars($product['description']); ?>
+        </p>
+
+        <div class="form-group">
+          <label for="quantity">Quantity: </label>
+          <input type="number" id="quantity" name="quantity" min="1" value="1" />
+          <div class="total-price">
+            Total: <span id="price"><?php echo htmlspecialchars($product['price']); ?></span> TND
+          </div>
+        </div>
+
+        <div class="rating">
+          <?php
+            $rating = round($product['rating'] * 2) / 2;
+            $fullStars = floor($rating);
+            $halfStar = ($rating - $fullStars) == 0.5 ? 1 : 0;
+            $emptyStars = 5 - $fullStars - $halfStar;
+            echo str_repeat("★", $fullStars);
+            if ($halfStar) echo "☆";
+            echo str_repeat("☆", $emptyStars);
+          ?>
+        </div>
+
+        <div class="buttons">
+          <button class="buy-btn" onclick="purchaseProduct()">Buy Now</button>
+          <button class="cancel-btn" onclick="window.location.href='store.php'">Cancel</button>
+        </div>
+
+      </div>
+    <?php endif; ?>
+
     <iframe src="./components/footer.html" width="100%" height="413" style="border:0;" loading="lazy"></iframe>
 
-    <!-- Script for total price -->
     <script>
       const quantityInput = document.getElementById("quantity");
       const priceSpan = document.getElementById("price");
-      const unitPrice = 50;
+      const unitPrice = <?php echo json_encode((float) ($product['price'] ?? 0)); ?>;
+      const productId = <?php echo json_encode((int) ($product['id'] ?? 0)); ?>;
 
       function updatePrice() {
         const qty = parseInt(quantityInput.value) || 1;
-        priceSpan.textContent = qty * unitPrice;
+        priceSpan.textContent = (qty * unitPrice).toFixed(2);
+      }
+
+      function purchaseProduct() {
+        const qty = parseInt(quantityInput.value) || 1;
+        const baseUrl = <?php 
+          echo json_encode(isset($_SESSION['user']) 
+            ? "services/purchase_product.php" 
+            : "login.php"); 
+        ?>;
+        const finalUrl = baseUrl + (baseUrl.includes('?') ? '&' : '?') + 'id=' + productId + '&quantity=' + qty;
+        window.location.href = finalUrl;
       }
 
       quantityInput.addEventListener("input", updatePrice);

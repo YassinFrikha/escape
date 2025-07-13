@@ -180,7 +180,7 @@
             <p class="text-gray-600 mb-4"><?php echo htmlspecialchars($trip['description']); ?></p>
             <div class="flex items-center justify-between">
                 <span class="text-xl font-bold primary-text"><?php echo htmlspecialchars($trip['price']); ?> TND</span>
-                <a href="payment.php?id=<?php echo $trip['id']; ?>" class="primary-bg text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition duration-300">Book Now</a>
+                <a href="trip-details.php?id=<?php echo $trip['id']; ?>" class="primary-bg text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition duration-300">More Details</a>
             </div>
         </div>
     </div>
@@ -232,7 +232,7 @@
                             type="submit" 
                             class="w-full primary-bg text-white py-2 rounded hover:bg-opacity-90 transition duration-300"
                         >
-                            Add to Cart
+                            More Details
                         </button>
                     </div>
                 </div>

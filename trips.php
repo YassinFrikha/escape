@@ -186,18 +186,7 @@
       </a>
     </div>
 
-    <!-- === Social Media Icons === -->
-    <div class="social-media">
-      <a href="https://facebook.com" target="_blank">
-        <img src="pics/facebook.png" alt="Facebook" />
-      </a>
-      <a href="https://instagram.com" target="_blank">
-        <img src="pics/insta.png" alt="Instagram" />
-      </a>
-      <a href="https://wa.me/yourphonenumber" target="_blank">
-        <img src="pics/whatup.png" alt="WhatsApp" />
-      </a>
-    </div>
+   
 
     <iframe src="./components/footer.html" width="100%" height="413" style="border:0;" loading="lazy"></iframe>
   </body>

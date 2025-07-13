@@ -57,8 +57,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     }
 
     .logo img {
-        height: 100px;
         vertical-align: middle;
+        width: 170px; 
+        transform: translateX(-50px);
     }
 
     .nav-links {
@@ -123,7 +124,10 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <div class="nav-gap"></div>
 <nav>
     <div class="logo">
-        <img src="./pics/logo.png" alt="ESCAPE Logo" />
+        <img 
+            onclick="location.href='./home.php'"
+            style="cursor:pointer"
+            src="./pics/logo-footer.png" alt="ESCAPE Logo" />
     </div>
     <div class="nav-links">
         <a href="home.php" class="<?= $currentPage === 'home.php' ? 'active' : '' ?>">HOME</a>
@@ -142,7 +146,6 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
         <?php if (isset($_SESSION['user'])): ?>
             <a href="profile.php" class="<?= $currentPage === 'profile.php' ? 'active' : '' ?>">ACCOUNT</a>
-            <a href="/escape/logic/logout.php">LOGOUT</a>
         <?php else: ?>
             <a href="login.php" class="<?= $currentPage === 'login.php' ? 'active' : '' ?>">LOG IN</a>
         <?php endif; ?>

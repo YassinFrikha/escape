@@ -88,6 +88,42 @@ if ($resetDatabase) {
         die("Error creating product table: " . $conn->error);
     }
 
+    // Create the appointment table
+    $appointmentSql = "CREATE TABLE IF NOT EXISTS appointment (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        user_id INT NOT NULL,
+        trip_id INT NOT NULL,
+        date DATETIME NOT NULL,
+        approved BOOLEAN DEFAULT FALSE,
+        FOREIGN KEY (user_id) REFERENCES user(id),
+        FOREIGN KEY (trip_id) REFERENCES trip(id)
+    ) ENGINE=InnoDB";
+
+    // Create the purchase table
+    $purchaseSql = "CREATE TABLE IF NOT EXISTS purchase (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        user_id INT NOT NULL,
+        product_id INT NOT NULL,
+        quantity INT NOT NULL,
+        date DATETIME NOT NULL,
+        approved INT DEFAULT 0,
+        FOREIGN KEY (user_id) REFERENCES user(id),
+        FOREIGN KEY (product_id) REFERENCES product(id)
+    ) ENGINE=InnoDB";
+
+    // Execute both table creations
+    if ($conn->query($appointmentSql) === TRUE) {
+        echo "Appointment table created successfully<br>";
+    } else {
+        echo "Error creating appointment table: " . $conn->error . "<br>";
+    }
+
+    if ($conn->query($purchaseSql) === TRUE) {
+    echo "Purchase table created successfully<br>";
+    } else {
+        echo "Error creating purchase table: " . $conn->error . "<br>";
+    }
+
     // Include the function to insert user
     require_once "./add_user.php";
     require_once "./add_trip.php";
